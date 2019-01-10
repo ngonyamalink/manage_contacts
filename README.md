@@ -1,2 +1,2 @@
 # manage_contacts
-manage_contacts
+general purpose

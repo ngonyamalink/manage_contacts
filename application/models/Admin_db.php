@@ -14,7 +14,7 @@ class Admin_db extends CI_Model {
 
     //function that queries admin db record
     public function get_admin($u, $p) {
-        $sql = "select admin_id,username,password from admin where (username='$u' and  password='$p')";
+        $sql = "select member_id,member_email,member_password from member where (member_email='$u' and  member_password='$p')";
         $query = $this->db->query($sql);
         return !empty($query) ? $query->row_array() : false;
     }

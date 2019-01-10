@@ -45,6 +45,8 @@ class Admin extends CI_Controller {
     public function auth_admin() {
         $fdata = $this->input->post();
         $admin_data = $this->admin_lib->get_admin($fdata['username'], do_hash($fdata['password'], 'md5'));
+        
+       
         if ($admin_data == true) {
             $this->session->set_userdata(array("admin_id" => $this->admin_lib->admin_id, "username" => $this->admin_lib->username, "password" => $this->admin_lib->password));
             redirect("p_list");

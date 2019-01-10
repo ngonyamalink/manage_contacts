@@ -19,9 +19,9 @@ class Admin_lib {
         $data = $CI->admin_db->get_admin($u, $p);
 
         if ($data) {
-            $this->admin_id = $data['admin_id'];
-            $this->username = $data['username'];
-            $this->password = $data['password'];
+            $this->admin_id = $data['member_id'];
+            $this->username = $data['member_email'];
+            $this->password = $data['member_password'];
             return TRUE;
         } else {
 
