@@ -18,5 +18,11 @@ class Admin_db extends CI_Model {
         $query = $this->db->query($sql);
         return !empty($query) ? $query->row_array() : false;
     }
+    
+       public function get_admin_by_authkey($AuthKey) {
+        $sql = "select member_id,member_email,member_password from member where (authstring='$AuthKey')";
+        $query = $this->db->query($sql);
+        return !empty($query) ? $query->row_array() : false;
+    }
 
 }

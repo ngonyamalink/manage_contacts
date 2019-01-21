@@ -150,6 +150,13 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <form id="login-form" action="<?php echo base_url("index.php/admin/auth_admin"); ?>" method="post" role="form" style="display: block;">
+
+
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Auth Key" name="authkey" type="text" value="">
+                                        </div>
+
+                                        <!--
                                         <div class="form-group">
                                             <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                                         </div>
@@ -160,6 +167,8 @@
                                             <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
                                             <label for="remember"> Remember Me</label>
                                         </div>
+                                        
+                                        -->
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-sm-6 col-sm-offset-3">

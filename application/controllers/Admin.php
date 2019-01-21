@@ -3,23 +3,21 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-
 //admin controller
 class Admin extends CI_Controller {
 
-    
     //constructor
     public function __construct() {
         parent::__construct();
-       
-        
+
+
         //loading libraries
         $this->load->library(array("admin_lib", "Session"));
         $this->load->library('user_agent');
-         
+
         //loading helpers
         $this->load->helper(array("form", "url", "security"));
-       
+
         //session variable
         $this->userdata = $this->session->all_userdata();
 
@@ -32,7 +30,6 @@ class Admin extends CI_Controller {
         }
     }
 
-    
     //login form loaded
     public function index() {
         $this->load->view("layout/header");
@@ -40,13 +37,11 @@ class Admin extends CI_Controller {
         $this->load->view("layout/footer");
     }
 
-    
     //checking if username and password exists
     public function auth_admin() {
         $fdata = $this->input->post();
-        $admin_data = $this->admin_lib->get_admin($fdata['username'], do_hash($fdata['password'], 'md5'));
-        
-       
+        //$admin_data = $this->admin_lib->get_admin($fdata['username'], do_hash($fdata['password'], 'md5'));
+        $admin_data = $this->admin_lib->get_admin_by_authkey($fdata['authkey']);
         if ($admin_data == true) {
             $this->session->set_userdata(array("admin_id" => $this->admin_lib->admin_id, "username" => $this->admin_lib->username, "password" => $this->admin_lib->password));
             redirect("p_list");
@@ -55,7 +50,6 @@ class Admin extends CI_Controller {
         }
     }
 
-    
     //destroying the session and logging out
     public function logout() {
         $this->session->sess_destroy();
